@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.css">
+
+    <style>
+	
+		@font-face {
+    font-family: 'TheSans';
+    src: url('TheSansB_900_.woff');
+}
+
+body {
+  background-color: #fcfcfc;
+  
+}
+
+#container {
+		width: auto; margin: 0 auto;
+	
+}
+
+.event-container, .event-container-webinar, .event-container-seminar, .event-container-event {
+    background-color: white;
+	    border-style: solid;
+	border-color: #ededed;
+    border-width: 1px;
+    overflow: auto;
+	display: block;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: "TheSans", "Segoe UI";
+  font-size: 55px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  line-height: 61px;
+  color: #1476C6;
+}
+
+@media screen and (max-width: 500px) {
+  h1  {
+    font-size: 11vw;
+  }
+}
+
+h2 {
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    font-weight: 600;
+    margin-left: 15px;
+	margin-right: 15px;
+}
+
+.h2link {
+	color: #1476c6;
+	text-decoration: none;
+}
+.h2link:hover {
+	text-decoration: underline;
+}
+
+
+
+#container > p {
+    font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+    font-weight: 200;
+}
+
+#event-box {
+	height: 100%;
+  width: 100%;
+display: table-cell;
+
+}
+
+#event-box p {
+    font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+padding: 0px 5px 0px 0px;
+    margin-left: 15px;
+	max-width: 70%;
+}
+.info {
+	line-height: 20px;
+
+}
+
+.event-container-seminar #event-box > p {
+    max-width: 500px;
+	
+}
+
+
+.sortbutton:hover {
+background-color: #00C0F2;
+  transition: 0.4s;
+  cursor: default;
+ 
+}
+
+.date-box {
+	height: 100%;
+    min-width: 150px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0278C1;
+    font-size: 1.2rem;
+    color: #fff;
+  float: left;
+  cursor: default;
+	 overflow-y:hidden;
+
+}
+
+.date {
+margin-top: 10px;
+
+}
+
+.date-box span:nth-of-type(1) {
+font-family: 'TheSans','Segoe UI';
+font-size: 2.3em;
+cursor: default;
+ font-weight: 500;
+}
+
+.date-box span:nth-of-type(2) {
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+cursor: default;
+}
+
+welcome {
+  color: #6b6b6b;
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+@media screen and (max-width: 400px) {
+  .welcome  {
+    font-size: 4.5vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .filter  {
+    display:none;
+  }
+}
+
+
+  .filter  {
+    margin-bottom: 15px;
+}
+
+.start-button {
+	background-color: #00C0F2;
+}
+
+.button-all, .button-webinar, .button-seminar, .button-event {
+display:inline-block;
+background-color: #0278C1;
+padding: 0px 40px 0px 40px;
+text-align:center;
+  margin: 15px 10px 5px 0px;
+  height: 40px;
+  line-height: 0px;
+
+	-webkit-user-select: none; 
+-moz-user-select: none; 
+-ms-user-select: none;
+user-select: none;
+}
+
+.button-all:hover, .button-webinar:hover, .button-seminar:hover, .button-event:hover {
+background-color: #00C0F2;
+	transition: 0.5s;
+	cursor: default;
+}
+
+.button-selected {
+	background-color: #00C0F2
+}
+
+.buttontext {
+color: #ffffff;
+font-family: "Segoe UI", "Helvetica neue", Arial;
+font-size: 20px;
+
+}
+
+.date {
+  text-align:center;
+}
+
+#main {
+			width:100%;
+			height:100%;
+	background-color: #FCFCFC;
+}
+
+#container {
+			max-width: 75%;
+			height: 100%;
+			margin: 0 auto;
+			position: relative;
+}
+
+.separator  {
+	margin-bottom: 15px;
+	
+}
+
+.filterintro {
+	font-size: 16px;
+	font-weight: 600;
+	font-style: normal;
+	margin-bottom: -10px;
+	margin-top: 40px;
+	font-family: "Segoe UI", "Helvetica neue", Arial;
+	color: #333333;
+}
+
+.signup {
+  width: 100px;
+  height: 0;
+  border-style: solid;
+  border-width: 0 125px 125px 0;
+  border-color: transparent #5cb85c transparent transparent;
+  right: 0;
+  position: absolute;
+		transition: 0.3s;
+}
+
+.signup:hover {
+  border-color: transparent #69d369 transparent transparent;
+	transition: 0.3s;
+}
+
+.signup a {
+color: white;
+	font-size: 13px;
+position: relative;
+left: 130px;
+top: 5px;
+text-decoration: none;
+	font-weight: 700;
+
+}
+
+.signup p {
+font-weight: 700 !important;
+line-height: 15px !important;
+	text-align: right;
+}
+
+.flag-icon {
+	position: relative;
+	left: 15px;
+	top: -4px;
+font-size: 15px;
+	display: none;
+}
+.maincal {
+	margin-right: 15px;
+}
+.fas, .far {
+	margin-right: 10px;
+	
+}
+.fa-map-marker-alt {
+    margin-left: 1.5px;
+}
+.fa-laptop {
+    margin-left: -2px;
+}
+ 
+
+
+
+@media screen and (max-width: 458px) {
+.date-box {
+width: 100%;
+ }
+	
+	.info {
+		font-size: 4vw;
+ }
+	
+.details {
+		font-size: 4vw;
+ }
+h2 {
+		font-size: 6vw;
+	}
+	
+	.flag-icon {
+	position: relative;
+	left: 15px;
+	top: -1.5px;
+font-size: 15px;
+}
+}
+
+@media screen and (min-width: 999px) {
+  .mobile_signup p  {
+display: none;
+	
+  }
+	
+}
+
+@media screen and (max-width: 999px) {
+  .signup  {
+    display:none;
+  }
+}
+
+.mobile_signup p  {
+    	font-size: 16px;
+	text-decoration: none;
+	font-weight: 400;
+		text-align: center; 
+	font-style: normal;
+	font-family: "Segoe UI", "Helvetica neue", Arial;
+	
+  }
+
+.mobile_signup a  {
+	text-decoration: none;
+			color: #fff;
+
+  }
+ .mobile_signup:hover a  {
+	text-decoration: underline;
+color: #fff;
+  }
+
+.place {
+    line-height: 24px !important;
+		margin-top: -4px;
+}
+
+	
+    </style>
+	 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+</head>
+
+<body>
+  <div id="main">
+    <div id="container">
+        <h1><i class="far fa-calendar-alt maincal"></i> Eventkalender.</h1>
+        <p class="welcome">På den här sidan ser du Dustins kommande aktiviteter som arrangeras med olika teman och partners. För att läsa mer
+            och ta del av en aktivitet klickar du på knappen för anmälan vid respektive tillfälle.</p>
+
+<div class="filter">
+	      <div class="filterintro">
+				<p>
+					Sortera efter:
+					</p>
+			</div>
+<div class="button-all start-button">
+  <p class="buttontext" align="center">
+    Alla
+  </p>
+</div>
+      
+<div class="button-webinar">
+  <p class="buttontext">
+    Webinar 
+  </p>
+</div>
+  
+  <div class="button-seminar">
+  <p class="buttontext">
+    Seminarium
+  </p>
+</div>
+  
+  <div class="button-event">
+  <p class="buttontext">
+    Event
+  </p>
+</div>
+</div>
+      <div id="eventkalender">
+				
+
+				
+      <div class="event-container-seminar">
+        <div class="date-box">  
+          <p class="date">
+            <span>29</span> <br><span>November</span>
+          </p>
+														<div class="mobile_signup">
+					<p><a href="link">Läs mer & boka</a></p>
+				</div>
+              </div>
+
+
+<div id="event-box">
+	<div class="signup">
+						<p><a href="link">Läs mer & boka</a></p>
+		
+					</div>
+	
+             <a href="lank" class="h2link"><h2>Seminarium: Digital innovation inom retail</h2></a>
+         <p class="details"><i class="far fa-calendar-alt"></i>Torsdag 29 november 2018</p>
+            <p class="details"><i class="far fa-clock"></i>kl 08:00</p>
+            <p class="details place"><i class="fas fa-map-marker-alt"></i>Dustins konceptbutik, Sveavägen 44, Stockholm</p>
+        		</div></div>
+				
+
+				
+				<div class="separator"></div>
+				
+      <div class="event-container-seminar">
+        <div class="date-box">   
+          <p class="date">
+            <span>30</span> <br><span>November</span>
+						
+          </p>
+									<div class="mobile_signup">
+					<p><a href="link">Läs mer & boka</a></p>
+				</div>
+              </div>
+
+        <div id="event-box">
+						<div class="signup">
+						<p><a href="link">Läs mer & boka</a></p>
+					</div>
+          <a href="lank" class="h2link"><h2>Seminarium: Mer savann på kontoret</h2></a>
+            <p class="info">Varmt välkommen till Dustin Konceptbutik för en lunchföreläsning om det senaste inom ergonomi och arbetsplatsanpassning.</p>
+            <p class="details"><i class="far fa-calendar-alt"></i>Torsdag 30 november 2018</p>
+            <p class="details"><i class="far fa-clock"></i>kl 12:00</p>
+            <p class="details place"><i class="fas fa-map-marker-alt"></i>Dustins konceptbutik, Sveavägen 44, Stockholm</p></div></div>
+				
+			<div class="separator"></div>
+				
+        </div>
+			<div class="event-container-webinar">
+        <div class="date-box">   
+          <p class="date">
+            <span>25</span> <br><span>Januari 2019</span>
+          </p>
+														<div class="mobile_signup">
+					<p><a href="link">Läs mer & boka</a></p>
+				</div>
+              </div>
+        <div id="event-box">
+						<div class="signup">
+						<p><a href="link">Läs mer & boka</a></p>
+					</div>
+           <a href="lank" class="h2link"><h2>Webinar: Skapa en modern digital arbetsplats</h2></a>
+            <p class="info">Med Dustins tjänst Modern Workplace kan ditt företag lägga större delen av IT funktionerna i molnet vilket ger
+                tillgång till verktyg för både produktivitet, säkerhet och hantering av klienter. Vi berättar hur detta går
+                till och vilka fördelar det ger dig som företag.</p>
+            <p class="details"><i class="far fa-calendar-alt"></i>Fredag 25 januari 2019</p>
+            <p class="details"><i class="far fa-clock"></i>kl 11:00-12:00</p>
+            <p class="details place"><i class="fas fa-laptop"></i>Webinar</p>
+        </div></div>
+<div class="separator"></div>
+			<div class="event-container-event">
+        <div class="date-box">   
+          <p class="date">
+            <span>21-23</span> <br><span>Mars 2019</span>
+          </p>
+														<div class="mobile_signup">
+					<p><a href="link">Läs mer & boka</a></p>
+				</div>
+              </div>
+      
+        <div id="event-box">
+						<div class="signup">
+						<p><a href="link">Läs mer & boka</a></p>
+					</div>
+           <a href="lank" class="h2link"><h2>Event: Dustin Expo 2019</h2></a>
+            <p class="info">Den 21-23 mars slår vi återigen upp portarna till Ericsson Globe och välkomnar dig till Nordens största IT-mässa.</p>
+            <p class="details"><i class="far fa-calendar-alt"></i>21-23 mars 2019</p>
+            <p class="details"><i class="far fa-clock"></i>kl 11:00-12:00</p>
+            <p class="details place"><i class="fas fa-map-marker-alt"></i>Ericsson Globe, 121 77 Stockholm</p>
+        </div> </div>
+<div class="separator"></div>
+   </div>
+</div>
+		<script>
+$(function() {
+  $('.start-button').addClass('button-selected');
+});
+
+$(document).ready(function(){
+	    $(".button-all").click(function(){
+        $(".event-container-seminar").show( "fast" );
+			$(".event-container-event").show( "fast" );
+			$(".event-container-webinar").show( "fast" );
+$(this).toggleClass('button-selected').siblings().removeClass('button-selected');	
+				
+    });
+	
+	
+	
+    $(".button-webinar").click(function(){
+        $(".event-container-seminar").hide( "fast" );
+			$(".event-container-event").hide( "fast" );
+			$(".event-container-webinar").show( "fast" );
+			$(this).toggleClass('button-selected').siblings().removeClass('button-selected');	
+    });
+	    $(".button-seminar").click(function(){
+        $(".event-container-webinar").hide( "fast" );
+				$(".event-container-event").hide( "fast" );
+				$(".event-container-seminar").show( "fast" );
+				$(this).toggleClass('button-selected').siblings().removeClass('button-selected');	
+    });
+		    $(".button-event").click(function(){
+        $(".event-container-seminar").hide( "fast" );
+					$(".event-container-webinar").hide( "fast" );
+					$(".event-container-event").show( "fast" );
+					$(this).toggleClass('button-selected').siblings().removeClass('button-selected');	
+    });
+}); 
+
+
+	</script>
+</body>
+
+</html>
